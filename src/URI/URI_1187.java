@@ -13,7 +13,7 @@ public class URI_1187 {
 		double[][]M = new double[12][12];
 		double soma = 0, media = 0, cont = 0;
 		
-		char O = sc.next().toUpperCase().charAt(0);
+		String op = sc.next();
 		
 		for (int l = 0; l < M.length; l++) {
 			for (int c = 0; c < M[l].length; c++) {
@@ -35,9 +35,9 @@ public class URI_1187 {
 			aux2--;										
 		}
 		
-		if (O == 'S') {
+		if (op.equals("S")) {
 			System.out.printf("%.1f\n", soma);
-		} else if (O == 'M') {
+		} else {
 			media = soma / cont;
 			System.out.printf("%.1f\n", media);			
 		}		
@@ -45,5 +45,4 @@ public class URI_1187 {
 		sc.close();
 
 	}
-
 }

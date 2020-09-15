@@ -1,7 +1,6 @@
 package URI;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,9 +18,7 @@ public class URI_3089 {
 			for (int i = 0; i < n * 2; i++) {
 				presents.add(sc.nextInt());
 			}				
-			
-			Collections.sort(presents);			
-							
+										
 			System.out.println(mostExpensiveAndCheaper(presents));	
 			
 			n = sc.nextInt();			
