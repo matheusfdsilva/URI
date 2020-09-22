@@ -13,8 +13,8 @@ public class URI_2663 {
 		
 		int n = sc.nextInt();
 		int min = sc.nextInt();		
-		Map<Integer, Integer>map = new TreeMap<>(Collections.reverseOrder());		
-		
+		Map<Integer, Integer>map = new TreeMap<>(Collections.reverseOrder());	
+				
 		for (int i = 0; i < n; i++) {
 			int points = sc.nextInt();
 			if (map.containsKey(points)) {
