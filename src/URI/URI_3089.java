@@ -39,14 +39,12 @@ public class URI_3089 {
 		}
 		else {				
 			mostExpensive = presents.get(0) + presents.get(presents.size() - 1);
-			cheaper = mostExpensive;
-			presents.remove(0);
-			presents.remove(presents.size() - 1);
+			cheaper = mostExpensive;			
 			
 			while (presents.size() > 0) {
-				sum = presents.get(0) + presents.get(presents.size() - 1);
 				presents.remove(0);
 				presents.remove(presents.size() - 1);
+				sum = presents.get(0) + presents.get(presents.size() - 1);				
 				
 				if (sum > mostExpensive) {
 					mostExpensive = sum;
