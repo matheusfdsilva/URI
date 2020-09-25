@@ -11,35 +11,31 @@ public class URI_2650 {
 		Scanner sc = new Scanner(System.in);
 		
 		 int n = sc.nextInt();
-		 int h = sc.nextInt();
-		 List<String>list = new ArrayList<>();
+		 int h = sc.nextInt();		
 		 sc.nextLine();
+		 List<String>titas = new ArrayList<>();
 		 
 		 for (int i = 0; i < n; i++) {
-			 list.add(sc.nextLine());
-		 }
-		 
-		 List<String>titas = new ArrayList<>();
-		 String number, name;
-		 int altura;
-		 
-		 for (String str : list) {
-			 number = "";
-			 name = "";
-			 for (int j = 0; j < str.length(); j++) {
-				 char ch = str.charAt(j);
-				 if (Character.isDigit(ch)) {
-					 number += ch;
-				 }
-				 else {
-					 name += ch;
-				 }
+			String str = sc.nextLine();
+			
+			String number, name;
+			int altura;			
+			int aux = 0;
+			char ch = str.charAt(aux);
+			
+			while (!Character.isDigit(ch)) {
+				 aux++;
+				 ch = str.charAt(aux);
 			 }
+			 			 
+			 number = str.substring(aux);
+			 name = str.substring(0, aux-1); // -1 para não pegar o ultimo space	
 			 altura = Integer.parseInt(number);
+			 
 			 if (altura > h) {
-				 titas.add(name.trim());
-			 }
-		 }
+				 titas.add(name);
+			 }			
+		 }	
 		
 		 titas.forEach(System.out::println);		 
 		
