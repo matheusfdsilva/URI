@@ -29,7 +29,7 @@ public class URI_2087 {
 					}
 				}
 			}
-			System.out.println(isGood == true ? "Conjunto Bom" : "Conjunto Ruim");
+			System.out.println(isGood ? "Conjunto Bom" : "Conjunto Ruim");
 			list.clear();
 			n = sc.nextInt();			
 		}		
