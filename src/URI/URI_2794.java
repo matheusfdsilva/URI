@@ -20,7 +20,7 @@ public class URI_2794 {
 			map.put(dis, ton);
 		}
 						
-		System.out.println(checkPadrao(map) == true ? "S" : "N") ;	
+		System.out.println(checkPadrao(map) ? "S" : "N") ;	
 		
 		sc.close();
 	}
