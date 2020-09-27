@@ -24,7 +24,7 @@ public class URI_1285 {
 		for (int i = a; i <= b; i++) {
 			String aux = String.valueOf(i);	
 			String aux2 = "";			
-			boolean helper = false;
+			boolean helper = true;
 			
 			for (char obj : aux.toCharArray()) {
 				if (aux2.contains(obj+"")) {	
@@ -32,8 +32,7 @@ public class URI_1285 {
 					break;
 				}
 				else {
-					aux2 += obj;
-					helper = true;
+					aux2 += obj;					
 				}
 			}			
 			
