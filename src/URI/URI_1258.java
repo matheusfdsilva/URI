@@ -73,8 +73,6 @@ public class URI_1258 {
 	}
 		
 	public static void printer(List<Shirt> list, String color) {
-		List<Shirt> newList = list.stream().filter(x -> x.color.equals(color)).collect(Collectors.toList());
-		Collections.sort(newList);
-		newList.forEach(System.out::println);
+		list.stream().filter(x -> x.color.equals(color)).sorted().forEach(x -> System.out.println(x));		
 	}
 }
