@@ -9,58 +9,36 @@ public class URI_2028 {
 		Scanner sc = new Scanner(System.in);
 		int caso = 1;
 		
-		while (sc.hasNext()) {
+		while (sc.hasNext()) {							
+			int n = sc.nextInt();				
+			StringBuilder sb = new StringBuilder();
+			sb.append(0+" ");
+			int aux = 1;
+			int totNumeros = 1;
 			
-			int n = sc.nextInt();			
-			int cont = 0;
-			
-			for (int i = 0; i <= n; i++) {				
-				int contRepeticao = 0;
-				
-				if (i == 0) {					
-					cont++;
-				}								
-				while (contRepeticao < i) {				
-					contRepeticao++;
-					cont++;
-				}				
-			}
-			int[]vect = new int[cont];
-			int aux = 0;
-				
-			for (int p = 0; p <= n; p++) {				
-				int contRepeticao = 0;
-					
-					if (p == 0) {
-						vect[aux] = p;
-						aux++;
-					}									
-					while (contRepeticao < p) {	
-						vect[aux] = p;
-						contRepeticao++;
-						aux++;
-					}				
-				}
-			
-			if (vect.length == 1) {
-				System.out.println("Caso " + caso + ": " + vect.length + " numero");
-			} else {
-				System.out.println("Caso " + caso + ": " + vect.length + " numeros");
+			while (aux <= n) {
+				totNumeros = appendNumeros(sb, aux, totNumeros);
+				aux++;
 			}
 			
-			cont = 0;
-			for (int number : vect) {
-				if (cont < vect.length - 1) {
-					System.out.print(number + " ");
-				} else {
-					System.out.println(number);
-				}
-				cont++;
-			}			
+			String numero = sb.length() == 2 ? "numero" : "numeros";
+						
+			System.out.println("Caso " + caso + ": " + totNumeros + " " + numero);
+			System.out.println(sb.toString().trim());	
 			System.out.println();
+						
 			caso++;
-		}		
+		}	
 		
 		sc.close();
+	}
+
+	private static int appendNumeros(StringBuilder sb, int n, int numeros) {	
+		int tot = numeros;
+		for (int i = 0; i < n; i++) {
+			sb.insert(sb.length(), n+" ");
+			tot++;
+		}		
+		return tot;
 	}
 }
