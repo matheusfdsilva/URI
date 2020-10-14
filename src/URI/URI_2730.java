@@ -19,14 +19,11 @@ public class URI_2730 {
 			
 			for (int i = 0; i < par1.length; i++) {
 				for (int k = 0; k < par2.length; k++) {			
-					int mdcA = mdc(par1[i], par2[k]);
-					int mdcB = mdc(par2[k], par1[i]);
-					if (mdcA == 1) {
+					int mdc = mdc(par1[i], par2[k]);					
+					if (mdc == 1) {
 						pares.add(par1[i] + "," + par2[k]);
-					}
-					if (mdcB == 1) {
 						pares.add(par2[k] + "," + par1[i]);
-					}										
+					}									
 				}
 			}
 						
