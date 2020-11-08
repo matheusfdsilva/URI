@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 Repositório contendo mais de 450 soluções aceitas em Java no Uri Online Judge.
 =======
 Repositório contendo mais de 500 soluções aceitas em Java no Uri Online Judge.
