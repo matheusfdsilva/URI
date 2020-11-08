@@ -1,4 +1,4 @@
-Repositório contendo mais de 450 soluções aceitas em Java no Uri Online Judge.
+Repositório de soluções aceitas em Java no Uri Online Judge.
 =======
 Repositório contendo mais de 500 soluções aceitas em Java no Uri Online Judge.
 >>>>>>> 1d5c4cf262744f7e7a014abf02b7a57454c36e8b
