@@ -41,35 +41,21 @@ public class URI_1121 {
 			
 			for (int i = 0; i < s; i++) {
 				char robotMoviment = moviments.charAt(i);
-				if (robotMoviment != 'F') {
+				if (robotMoviment != 'F') { 
+					int dif;
 					if (robotMoviment == 'D') {
-						if (ROBOT_DIRECTION == 'O') {
-							robotMoviment = 'N';
-						}
-						if (ROBOT_DIRECTION == 'L') {
-							robotMoviment = 'S';
-						}
-						if (ROBOT_DIRECTION == 'N') {
-							robotMoviment = 'L';
-						}
-						if (ROBOT_DIRECTION == 'S') {
-							robotMoviment = 'O';
-						}
-					} else {
-						if (ROBOT_DIRECTION == 'O') {
-							robotMoviment = 'S';
-						}
-						if (ROBOT_DIRECTION == 'L') {
-							robotMoviment = 'N';
-						}
-						if (ROBOT_DIRECTION == 'N') {
-							robotMoviment = 'O';
-						}
-						if (ROBOT_DIRECTION == 'S') {
-							robotMoviment = 'L';
-						}
+						dif = FULL_DIRECTION.indexOf(ROBOT_DIRECTION) + 1;
+						if (dif == FULL_DIRECTION.length()) {
+							dif = 0;
+						}						
+					} 
+					else {    
+						dif = FULL_DIRECTION.indexOf(ROBOT_DIRECTION) - 1;
+						if (dif == -1) {
+							dif = 3;
+						}							
 					}
-					ROBOT_DIRECTION = robotMoviment;
+					ROBOT_DIRECTION = FULL_DIRECTION.charAt(dif);
 				}
 
 				else {
