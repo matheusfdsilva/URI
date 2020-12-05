@@ -1,67 +1,55 @@
 package URI;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
-import java.util.TreeMap;
 
 public class URI_1252 {
 
+	public static int div;
+	
 	public static void main(String[] args) {
 
-		Scanner sc = new Scanner(System.in);
+Scanner sc = new Scanner(System.in);
 		
 		int n = sc.nextInt();
 		int m = sc.nextInt();
 		System.out.println(n + " " + m);
 		
 		while (n != 0 && m != 0) {
-			Map<Integer, String> map = new TreeMap<>();
+			List<Integer> list = new ArrayList<>();
 			for (int i = 0; i < n; i++) {
-				Integer num = sc.nextInt();
-				Integer mod = num % m;
-				if (map.containsKey(mod)) {
-					map.put(mod, map.get(mod)+" "+num);					
-				}
-				else {
-					map.put(mod, ""+num);
-				}				
+				int numero = sc.nextInt();
+				list.add(numero);
 			}
-				
-			List<Integer> impares = new ArrayList<>();
-			List<Integer> pares = new ArrayList<>();
+			div = m;
 			
-			for (Integer key : map.keySet()) {				
-				String[] array = map.get(key).split(" ");
-				int[] arrayInt = new int[array.length];
-				for (int l = 0; l < array.length; l++) {
-					arrayInt[l] = Integer.parseInt(array[l]);
-				}
-				Arrays.sort(arrayInt);	
-								
-				for (int k = array.length-1; k >=0; k--) {					
-					if (arrayInt[k] % 2 == 0) {
-						pares.add(arrayInt[k]);
+			list.sort((x, y) -> {						
+				int modx = x % div;
+				int mody = y % div;					
+				if (modx == mody) {
+					if ((x % 2 != 0 && y % 2 == 0) || (x % 2 == 0 && y % 2 != 0)) {		
+						if (x % 2 != 0) {
+							return - 1;
+						}
+						else {
+							return 1;
+						}						
 					}
-					else {
-						impares.add(arrayInt[k]);
-					}
-				}
-				
-				impares.forEach(System.out::println);
-				for (int i = pares.size()-1; i >= 0; i--) {
-					System.out.println(pares.get(i));
-				}
-				
-				impares.clear();
-				pares.clear();
-			}		
+					if (x % 2 != 0 && y % 2 != 0) {
+						return -x.compareTo(y);
+					}					
+					return x.compareTo(y);
+				}						
+				x = modx; y = mody;				
+				return x.compareTo(y);
+			});
+						
+			list.forEach(System.out::println);
 			
 			n = sc.nextInt();
 			m = sc.nextInt();
-			System.out.println(n + " " + m);			
+			System.out.println(n + " " + m);
 		}
 		
 		sc.close();
