@@ -24,28 +24,23 @@ public class URI_3135 {
         String nextName = firstName;
 
         while (names.size() > 0) {
-            if (hasBiggerLength(nextName, names)){
-                nextName = getNextName(nextName.length(), names);
-                System.out.print(", " + nextName);
+            Optional<String> opt = getNextName(nextName.length(), names);
+            if (opt.isPresent()){
+                System.out.print(", " + opt.get());
             }
             else {
-                nextName = getNextName(0, names);
-                System.out.print("\n" + nextName);
+                opt = getNextName(0, names);
+                System.out.print("\n" + opt.get());
             }
+            nextName = opt.get();
+            names.remove(nextName);
         }
 
         System.out.println();
     }
 
-    private static String getNextName(int nameLength, List<String> names) {
-        String nextName =  names.stream().filter(x -> x.length() > nameLength).findFirst().get();
-        names.remove(nextName);
-        return nextName;
-    }
-
-    private static boolean hasBiggerLength(String firstName, List<String> names) {
-        String name = names.stream().filter(x -> x.length() > firstName.length()).findFirst().orElse(null);
-        return name != null;
+    private static Optional<String> getNextName(int nameLength, List<String> names) {
+        return names.stream().filter(x -> x.length() > nameLength).findFirst();
     }
 }
 
